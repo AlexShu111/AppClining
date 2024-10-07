@@ -7,7 +7,7 @@
   - [2.2 Интерфейс пользователя](#ui)
   - [2.3 Характеристики пользователей](#user_characteristics)
   - [2.4 Предположения и зависимости](#assumptions)
--[3. Системные требования](#system_requirements)
+- [3. Системные требования](#system_requirements)
   - [3.1 Функциональные требования](#functional_requirements)
   - [3.2 Нефункциональные требования](#non_functional_requirements)
 
