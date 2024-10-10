@@ -45,8 +45,6 @@ class ServicesAdapter(var services: List<Services>, var context: Context): Recyc
 
     }
 
-
-
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_services,parent, false)
         return MyViewHolder(view)
@@ -80,22 +78,7 @@ class ServicesAdapter(var services: List<Services>, var context: Context): Recyc
             isZoomed = !isZoomed
             true
         }
-//        holder.itemView.setOnClickListener {
-//            holder.itemView.setOnCreateContextMenuListener { menu, v, menuInfo ->
-//                menu.add("Copy").setOnMenuItemClickListener {
-//                    copyToClipboard(holder.desc.text.toString())
-//                    true
-//                }
-//            }
-//        }
     }
-//    private fun copyToClipboard(text: String) {
-//        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
-//        val clip = ClipData.newPlainText("Copied Text", text)
-//        clipboard.setPrimaryClip(clip)
-//        Toast.makeText(context, "Text copied to clipboard", Toast.LENGTH_LONG).show()
-//    }
-
     private fun zoomInAnimation(view: View) {
         val scaleAnimation = ScaleAnimation(
             1f, 2f,  // Масштаб по оси X от 1 до 2
