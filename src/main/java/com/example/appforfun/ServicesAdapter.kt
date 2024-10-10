@@ -1,23 +1,50 @@
 package com.example.appforfun
 
+import android.app.Activity
+import android.content.ClipData
+import android.content.ClipboardManager
 import android.content.Context
 import android.view.ContextMenu
 import android.view.LayoutInflater
+import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.ScaleAnimation
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
-import com.bumptech.glide.Glide
+
+
 
 class ServicesAdapter(var services: List<Services>, var context: Context): RecyclerView.Adapter<ServicesAdapter.MyViewHolder>() {
-    class MyViewHolder(view: View ): RecyclerView.ViewHolder(view){
+    class MyViewHolder(view: View ): RecyclerView.ViewHolder(view),
+        View.OnCreateContextMenuListener {
         val image: ImageView = view.findViewById(R.id.ImGenCli)
         val title: TextView = view.findViewById(R.id.Service_list_title)
         val desc: TextView = view.findViewById(R.id.Service_list_desc)
         val price: TextView = view.findViewById(R.id.Service_list_price)
+
+        init {
+            // Регистрируем поле описания для контекстного меню
+            desc.setOnCreateContextMenuListener(this)
+        }
+
+        override fun onCreateContextMenu(menu: ContextMenu, v: View?, menuInfo: ContextMenu.ContextMenuInfo?) {
+            val inflater: MenuInflater = (itemView.context as Activity).menuInflater
+            inflater.inflate(R.menu.context_menu, menu)
+
+            menu.findItem(R.id.action_copy).setOnMenuItemClickListener {
+                val clipboard = itemView.context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+                val clip = ClipData.newPlainText("Copied Text", desc.text)
+                clipboard.setPrimaryClip(clip)
+                Toast.makeText(itemView.context, "Текст скопирован в буфер обмена", Toast.LENGTH_LONG).show()
+                true
+            }
+        }
+
     }
+
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MyViewHolder {
@@ -53,7 +80,21 @@ class ServicesAdapter(var services: List<Services>, var context: Context): Recyc
             isZoomed = !isZoomed
             true
         }
+//        holder.itemView.setOnClickListener {
+//            holder.itemView.setOnCreateContextMenuListener { menu, v, menuInfo ->
+//                menu.add("Copy").setOnMenuItemClickListener {
+//                    copyToClipboard(holder.desc.text.toString())
+//                    true
+//                }
+//            }
+//        }
     }
+//    private fun copyToClipboard(text: String) {
+//        val clipboard = context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
+//        val clip = ClipData.newPlainText("Copied Text", text)
+//        clipboard.setPrimaryClip(clip)
+//        Toast.makeText(context, "Text copied to clipboard", Toast.LENGTH_LONG).show()
+//    }
 
     private fun zoomInAnimation(view: View) {
         val scaleAnimation = ScaleAnimation(
