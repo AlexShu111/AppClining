@@ -1,18 +1,21 @@
 package com.example.appforfun
 
+import android.content.Intent
 import android.os.Bundle
+import android.widget.ImageButton
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
 class ServicesActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         enableEdgeToEdge()
         setContentView(R.layout.activity_services)
+
+
 
         val ServiceList: RecyclerView = findViewById(R.id.CleaningList)
         val services = arrayListOf<Services>()
@@ -24,5 +27,13 @@ class ServicesActivity : AppCompatActivity() {
         ServiceList.layoutManager = LinearLayoutManager(this)
         ServiceList.adapter = ServicesAdapter(services,this)
 
+
+
+        val ButtonProffrSer: ImageButton = findViewById(R.id.imageButtonToProfileFromServices)
+
+        ButtonProffrSer.setOnClickListener{
+            val intent = Intent(this, ActivityProfile::class.java)
+            startActivity(intent)
+        }
         }
     }

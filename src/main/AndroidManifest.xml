@@ -17,6 +17,9 @@
         android:theme="@style/Theme.AppForFun"
         tools:targetApi="31">
         <activity
+            android:name=".ActivityProfile"
+            android:exported="false" />
+        <activity
             android:name=".ServicesActivity"
             android:exported="false" />
         <activity
