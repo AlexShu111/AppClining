@@ -8,8 +8,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
+
 
 class AuthorizeActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -42,6 +41,7 @@ class AuthorizeActivity : AppCompatActivity() {
                     userPassword.text.clear()
 
                     val intent = Intent(this, ServicesActivity::class.java)
+                    intent.putExtra("USER_LOGIN", login)
                     startActivity(intent)
                 }
                 else

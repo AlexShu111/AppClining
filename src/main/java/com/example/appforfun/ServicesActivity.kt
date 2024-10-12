@@ -27,12 +27,13 @@ class ServicesActivity : AppCompatActivity() {
         ServiceList.layoutManager = LinearLayoutManager(this)
         ServiceList.adapter = ServicesAdapter(services,this)
 
-
+        val profLogin = intent.getStringExtra("USER_LOGIN")
 
         val ButtonProffrSer: ImageButton = findViewById(R.id.imageButtonToProfileFromServices)
 
         ButtonProffrSer.setOnClickListener{
             val intent = Intent(this, ActivityProfile::class.java)
+            intent.putExtra("USER_LOGIN", profLogin)
             startActivity(intent)
         }
         }
