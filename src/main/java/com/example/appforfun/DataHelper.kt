@@ -36,8 +36,15 @@ class DataHelper(val context: Context, val factory: SQLiteDatabase.CursorFactory
 
     fun getEmail(login :String): String? {
         val database = this.readableDatabase
+        var email: String? = null
 
-        val email = database.rawQuery("SELECT email FROM users WHERE login = '$login'", null)
-        return email.getString(email.getColumnIndexOrThrow("email"))
+        val cursor = database.rawQuery("SELECT email FROM users WHERE login = '$login'", null)
+
+        if (cursor.moveToFirst()) {
+            // Извлекаем email из первой строки результата
+            email = cursor.getString(cursor.getColumnIndexOrThrow("email"))
+        }
+        cursor.close()
+        return email
     }
 }

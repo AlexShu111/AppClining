@@ -6,8 +6,6 @@ import android.widget.ImageButton
 import android.widget.TextView
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
-import androidx.core.view.ViewCompat
-import androidx.core.view.WindowInsetsCompat
 
 class ActivityProfile : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -17,11 +15,15 @@ class ActivityProfile : AppCompatActivity() {
 
         val profLogin: TextView = findViewById(R.id.ProfLogin)
         val profEmail: TextView = findViewById(R.id.ProfEmail)
+        val Log : TextView = findViewById(R.id.Log)
+        val Em : TextView = findViewById(R.id.Email)
+
+        Log.text = "Логин:"
+        Em.text = "Почта:"
 
         profLogin.text = intent.getStringExtra("USER_LOGIN")
 
-
-//        val db = DataHelper(this, null)
-//        profEmail.text = db.getEmail(profLogin.text.toString()).toString()
+        val db = DataHelper(this, null)
+        profEmail.text = db.getEmail(profLogin.text.toString())
     }
 }
