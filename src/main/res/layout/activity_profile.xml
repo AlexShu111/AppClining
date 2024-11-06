@@ -14,47 +14,49 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent">
 
             <ImageButton
                 android:id="@+id/ButtonForPhoto"
                 android:layout_width="100dp"
-                android:layout_height="100dp"
-                android:layout_marginHorizontal="40dp"
-                android:layout_marginVertical="40dp"
-                android:contentDescription = "Insert your photo"
+                android:layout_height="150dp"
+                android:layout_marginStart="30dp"
+                android:layout_marginTop="30dp"
+                android:contentDescription="Insert your photo"
                 app:srcCompat="@mipmap/ic_launcher_icon_ava_round" />
 
             <TextView
                 android:id="@+id/textView5"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:textSize="30sp"
-                android:textColor="#21A403"
+                android:layout_width="130dp"
+                android:layout_height="40dp"
+                android:layout_marginHorizontal="30dp"
                 android:layout_marginTop="40dp"
-                android:layout_marginLeft="20dp"
-                android:text="Профиль" />
+                android:text="Профиль"
+                android:textColor="#6B8E23"
+                android:textSize="30sp" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_marginTop="40dp">
 
             <TextView
                 android:id="@+id/Log"
-                android:layout_width="20dp"
-                android:layout_height="wrap_content"
-                android:textColor="#21A403"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
+                android:textColor="#6B8E23"
                 android:layout_marginStart="10dp"
+                android:layout_marginEnd="60dp"
                 android:textSize="25sp"
                 android:text="TextView" />
 
             <TextView
                 android:id="@+id/ProfLogin"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:textColor="#21A403"
-                android:textSize="25sp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="#6B8E23"
+                android:textSize="20sp"
                 android:textAlignment="center"
                 android:layout_marginEnd="10dp"
                 android:text="TextView" />
@@ -63,58 +65,69 @@
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:layout_marginTop="20dp">
 
             <TextView
                 android:id="@+id/Email"
-                android:layout_width="38dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="40dp"
                 android:layout_marginStart="10dp"
-                android:layout_marginTop="10dp"
+                android:layout_marginEnd="60dp"
                 android:text="TextView"
-                android:textColor="#21A403"
+                android:textColor="#6B8E23"
                 android:textSize="25sp" />
 
             <TextView
                 android:id="@+id/ProfEmail"
-                android:layout_width="225dp"
-                android:layout_height="wrap_content"
-                android:textColor="#21A403"
-                android:textSize="25sp"
-                android:textAlignment="center"
-                android:layout_marginTop="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:textColor="#6B8E23"
+                android:textSize="20sp"
+                android:textAlignment="viewStart"
                 android:layout_marginEnd="10dp"
                 android:text="TextView" />
         </TableRow>
 
         <TableRow
             android:layout_width="match_parent"
-            android:layout_height="match_parent" >
+            android:layout_height="match_parent"
+            android:gravity="center">
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="250dp"
                 android:layout_marginTop="60dp"
-                android:layout_marginStart="60dp"
                 android:orientation="vertical">
 
                 <Button
-                    android:id="@+id/button14"
+                    android:id="@+id/ButFromProfToServ"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Button" />
+                    android:textColor="#6B8E23"
+                    android:textSize="20sp"
+                    android:backgroundTint="#BC8F8F"
+                    android:text="Каталог услуг" />
 
                 <Button
-                    android:id="@+id/button15"
+                    android:id="@+id/ButToOrderHistory"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Button" />
+                    android:layout_marginTop="15dp"
+                    android:textColor="#6B8E23"
+                    android:textSize="20sp"
+                    android:backgroundTint="#BC8F8F"
+                    android:text="История заказов" />
 
                 <Button
-                    android:id="@+id/button16"
+                    android:id="@+id/ButToKorz"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Button" />
+                    android:layout_marginTop="15dp"
+                    android:textColor="#6B8E23"
+                    android:textSize="20sp"
+                    android:backgroundTint="#BC8F8F"
+                    android:text="Корзина" />
             </LinearLayout>
         </TableRow>
     </TableLayout>

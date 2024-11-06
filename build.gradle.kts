@@ -5,7 +5,7 @@ plugins {
 
 android {
     namespace = "com.example.appforfun"
-    compileSdk = 34
+    compileSdk = 35
 
     defaultConfig {
         applicationId = "com.example.appforfun"
@@ -27,25 +27,30 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_17
+        targetCompatibility = JavaVersion.VERSION_17
     }
     kotlinOptions {
-        jvmTarget = "1.8"
+        jvmTarget = "17"
     }
 }
 
 dependencies {
 
-    implementation ("com.squareup.retrofit2:retrofit:2.9.0")
-    implementation ("com.squareup.retrofit2:converter-gson:2.9.0")
-    implementation ("io.coil-kt:coil-compose:2.2.2")
+    implementation (libs.ucrop.v228)
 
-    implementation("com.github.bumptech.glide:glide:4.15.1")
+    implementation (libs.android.image.cropper)
+    implementation(libs.picasso)
 
-    implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4")
+    implementation (libs.retrofit)
+    implementation (libs.converter.gson)
+    implementation (libs.coil.compose)
 
-    annotationProcessor("com.github.bumptech.glide:compiler:4.15.1")
+    implementation(libs.glide)
+
+    implementation(libs.kotlinx.coroutines.android)
+
+    annotationProcessor(libs.compiler)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
