@@ -4,12 +4,14 @@ import android.app.Activity
 import android.content.ClipData
 import android.content.ClipboardManager
 import android.content.Context
+import android.content.Intent
 import android.view.ContextMenu
 import android.view.LayoutInflater
 import android.view.MenuInflater
 import android.view.View
 import android.view.ViewGroup
 import android.view.animation.ScaleAnimation
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
@@ -25,6 +27,7 @@ class ServicesAdapter(var services: List<Services>, var context: Context): Recyc
         val desc: TextView = view.findViewById(R.id.Service_list_desc)
         val price: TextView = view.findViewById(R.id.Service_list_price)
 
+        val buttonDetail : Button = view.findViewById(R.id.button_services)
         init {
             // Регистрируем поле описания для контекстного меню
             desc.setOnCreateContextMenuListener(this)
@@ -77,6 +80,16 @@ class ServicesAdapter(var services: List<Services>, var context: Context): Recyc
             }
             isZoomed = !isZoomed
             true
+        }
+        holder.buttonDetail.setOnClickListener{
+            val intent = Intent(context, ItemActivity::class.java)
+
+            intent.putExtra("ItemTitle",services[position].title)
+            intent.putExtra("ItemText",services[position].text)
+            intent.putExtra("ItemPrice",services[position].price.toString() + "byn")
+            intent.putExtra("ItemImage", imageId)
+
+            context.startActivity(intent)
         }
     }
     private fun zoomInAnimation(view: View) {
