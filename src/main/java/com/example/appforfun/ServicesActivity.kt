@@ -62,6 +62,10 @@ class ServicesActivity : AppCompatActivity() {
 
         val profLogin = intent.getStringExtra("USER_LOGIN")
 
+//        val adapter = ServicesAdapter(services, this)
+//        if (profLogin != null) {
+//            adapter.setProfLog(profLogin)
+//        }
         val buttonProfSer: ImageButton = findViewById(R.id.imageButtonToProfileFromServices)
 
 

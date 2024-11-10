@@ -34,11 +34,10 @@ class DataOrder(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
         onCreate(db)
     }
 
-    fun addOrder(title: String, description: String, price: String) {
+    fun addOrder(title: String, price: String) {
         val db = this.writableDatabase
         val values = ContentValues().apply {
             put(COLUMN_TITLE, title)
-            put(COLUMN_DESCRIPTION, description)
             put(COLUMN_PRICE, price)
         }
         db.insert(TABLE_ORDERS, null, values)
@@ -52,9 +51,8 @@ class DataOrder(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
         if (cursor.moveToFirst()) {
             do {
                 val title = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_TITLE))
-                val description = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_DESCRIPTION))
                 val price = cursor.getString(cursor.getColumnIndexOrThrow(COLUMN_PRICE))
-                ordersList.add(Order(title, description, price))
+                ordersList.add(Order(title, price))
             } while (cursor.moveToNext())
         }
         cursor.close()

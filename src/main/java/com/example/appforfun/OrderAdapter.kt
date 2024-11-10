@@ -10,7 +10,6 @@ class OrderAdapter(private val orders: List<Order>) : RecyclerView.Adapter<Order
 
     class OrderViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val title: TextView = itemView.findViewById(R.id.orderTitle)
-        val description: TextView = itemView.findViewById(R.id.orderDescription)
         val price: TextView = itemView.findViewById(R.id.orderPrice)
     }
 
@@ -22,7 +21,6 @@ class OrderAdapter(private val orders: List<Order>) : RecyclerView.Adapter<Order
     override fun onBindViewHolder(holder: OrderViewHolder, position: Int) {
         val order = orders[position]
         holder.title.text = order.title
-        holder.description.text = order.description
         holder.price.text = order.price
     }
 

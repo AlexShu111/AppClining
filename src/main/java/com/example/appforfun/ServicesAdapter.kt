@@ -83,16 +83,16 @@ class ServicesAdapter(var services: List<Services>, var context: Context): Recyc
             isZoomed = !isZoomed
             true
         }
+
+        val profLogin = (context as? Activity)?.intent?.getStringExtra("USER_LOGIN")
+
         holder.buttonDetail.setOnClickListener{
             val intent = Intent(context, ItemActivity::class.java)
-
-            val profLogin = intent.getStringExtra("USER_LOGIN")
-            intent.putExtra("USER_LOGIN", profLogin)
             intent.putExtra("ItemTitle",services[position].title)
             intent.putExtra("ItemText",services[position].text)
             intent.putExtra("ItemPrice",services[position].price.toString() + "byn")
             intent.putExtra("ItemImage", imageId)
-
+            intent.putExtra("USER_LOGIN", profLogin)
             context.startActivity(intent)
         }
     }
