@@ -6,6 +6,7 @@ import android.util.Log
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
 import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
@@ -21,6 +22,7 @@ class ItemActivity : AppCompatActivity() {
         val price : TextView = findViewById(R.id.Service_price)
         val imageItem : ImageView = findViewById(R.id.Service_Im)
         val butBack : Button = findViewById(R.id.button_back)
+        val butPay : Button = findViewById(R.id.button_buy)
 
         title.text = intent.getStringExtra("ItemTitle")
         textIt.text = intent.getStringExtra("ItemText")
@@ -37,5 +39,16 @@ class ItemActivity : AppCompatActivity() {
             val intent = Intent(this, ServicesActivity::class.java)
             startActivity(intent)
         }
+        butPay.setOnClickListener {
+            val titleOr = intent.getStringExtra("ItemTitle") ?: ""
+            val description = intent.getStringExtra("ItemText") ?: ""
+            val priceOr = intent.getStringExtra("ItemPrice") ?: ""
+
+            // Сохранение заказа в базу данных
+            val db = DataOrder(this)
+            db.addOrder(titleOr, description, priceOr)
+            Toast.makeText(this, "Заказ добавлен в историю", Toast.LENGTH_SHORT).show()
+        }
+
     }
 }

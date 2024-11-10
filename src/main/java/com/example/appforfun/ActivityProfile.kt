@@ -31,6 +31,7 @@ class ActivityProfile : AppCompatActivity() {
         val profLogin: TextView = findViewById(R.id.ProfLogin)
         val profEmail: TextView = findViewById(R.id.ProfEmail)
         imageBut = findViewById(R.id.ButtonForPhoto)
+        val buttonToOrderHistory: Button = findViewById(R.id.ButToOrderHistory)
 
 
         log.text = "Логин:"
@@ -66,6 +67,11 @@ class ActivityProfile : AppCompatActivity() {
             intent.type = "image/*"
             // Запуск активности для результата через новый API
             getContent.launch(intent)
+        }
+        buttonToOrderHistory.setOnClickListener {
+            val intent = Intent(this, OrderHistoryActivity::class.java)
+            intent.putExtra("USER_LOGIN", profLogin.text)
+            startActivity(intent)
         }
 
     }

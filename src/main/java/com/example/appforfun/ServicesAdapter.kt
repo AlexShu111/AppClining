@@ -37,6 +37,7 @@ class ServicesAdapter(var services: List<Services>, var context: Context): Recyc
             val inflater: MenuInflater = (itemView.context as Activity).menuInflater
             inflater.inflate(R.menu.context_menu, menu)
 
+
             menu.findItem(R.id.action_copy).setOnMenuItemClickListener {
                 val clipboard = itemView.context.getSystemService(Context.CLIPBOARD_SERVICE) as ClipboardManager
                 val clip = ClipData.newPlainText("Copied Text", desc.text)
@@ -63,6 +64,7 @@ class ServicesAdapter(var services: List<Services>, var context: Context): Recyc
         holder.desc.text = services[position].desc
         holder.price.text = services[position].price.toString() + "byn"
 
+
         val imageId = context.resources.getIdentifier(
             services[position].image,
             "drawable",
@@ -84,6 +86,8 @@ class ServicesAdapter(var services: List<Services>, var context: Context): Recyc
         holder.buttonDetail.setOnClickListener{
             val intent = Intent(context, ItemActivity::class.java)
 
+            val profLogin = intent.getStringExtra("USER_LOGIN")
+            intent.putExtra("USER_LOGIN", profLogin)
             intent.putExtra("ItemTitle",services[position].title)
             intent.putExtra("ItemText",services[position].text)
             intent.putExtra("ItemPrice",services[position].price.toString() + "byn")
