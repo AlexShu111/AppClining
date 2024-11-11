@@ -15,6 +15,11 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        externalNativeBuild {
+            cmake {
+                cppFlags += ""
+            }
+        }
     }
 
     buildTypes {
@@ -32,6 +37,12 @@ android {
     }
     kotlinOptions {
         jvmTarget = "17"
+    }
+    externalNativeBuild {
+        cmake {
+            path ("C:\\Android\\Mine\\app\\src\\main\\java\\com\\example\\appforfun\\CMakeLists.txt")
+            version = "3.22.1"
+        }
     }
 }
 

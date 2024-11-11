@@ -1,0 +1,5 @@
+# ninja log v5
+0	814	7530523337048554	CMakeFiles/appforfun.dir/appforfun.cpp.o	e43f4c648756b57f
+5	830	7530523337058577	CMakeFiles/text-utils-lib.dir/appforfun.cpp.o	489728891ec5f38d
+830	923	7530523338250093	C:/Android/Mine/app/build/intermediates/cxx/Debug/5z45346w/obj/arm64-v8a/libtext-utils-lib.so	c6a2fd896cd0ca8
+821	924	7530523338230105	C:/Android/Mine/app/build/intermediates/cxx/Debug/5z45346w/obj/arm64-v8a/libappforfun.so	89114094e0ee8b98

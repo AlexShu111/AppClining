@@ -2,6 +2,7 @@ package com.example.appforfun
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -10,6 +11,19 @@ import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 
 class MainActivity : AppCompatActivity() {
+    // Объявление JNI функции
+    private external fun clearText(): String
+    companion object {
+        private var isLibraryLoaded = false
+        init {
+            try {
+                System.loadLibrary("appforfun")
+                isLibraryLoaded = true
+            } catch (e: UnsatisfiedLinkError) {
+                isLibraryLoaded = false
+            }
+        }
+    }
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
@@ -34,15 +48,18 @@ class MainActivity : AppCompatActivity() {
                         db.addUser(user)
                         Toast.makeText(this, "Дабро пожаловать новый пользователь! $login", Toast.LENGTH_LONG).show()
 
-                        userLogin.text.clear()
-                        userEmail.text.clear()
-                        userPassword.text.clear()
+                        // Очистка полей с использованием JNI функции
+                        val emptyText = clearText() // Получаем пустую строку из C++
+                        userLogin.setText(emptyText)
+                        userEmail.setText(emptyText)
+                        userPassword.setText(emptyText)
                     }
                 }
-                        val linkToLog : TextView = findViewById(R.id.link_to_auth)
-                        linkToLog.setOnClickListener{
-                            val intent = Intent(this, AuthorizeActivity::class.java)
-                            startActivity(intent)
-                        }
-            }
+        val linkToLog : TextView = findViewById(R.id.link_to_auth)
+        linkToLog.setOnClickListener{
+            val intent = Intent(this, AuthorizeActivity::class.java)
+            startActivity(intent)
         }
+    }
+
+}

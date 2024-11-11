@@ -1,0 +1,4 @@
+C:/Android/Mine/app/.cxx/Debug/5z45346w/arm64-v8a/CMakeFiles/appforfun.dir
+C:/Android/Mine/app/.cxx/Debug/5z45346w/arm64-v8a/CMakeFiles/text-utils-lib.dir
+C:/Android/Mine/app/.cxx/Debug/5z45346w/arm64-v8a/CMakeFiles/edit_cache.dir
+C:/Android/Mine/app/.cxx/Debug/5z45346w/arm64-v8a/CMakeFiles/rebuild_cache.dir
