@@ -80,16 +80,23 @@ class CartActivity : AppCompatActivity() {
     private fun clearCart() {
         cartItems.clear()
         saveCartItems()  // Обновляем SharedPreferences
-        cartAdapter.notifyDataSetChanged()
     }
 
     private fun saveToOrderHistory(items: List<CartItem>) {
         val db = DataOrder(this)
-        // Сохраняем каждый товар из выбранных в истории
-        items.forEach { item ->
+        // Фильтруем только выбранные товары
+        val selectedItems = items.filter { item -> item.isSelected }
+        // Сохраняем каждый выбранный товар в историю
+        selectedItems.forEach { item ->
             item.price?.let { db.addOrder(item.title, it) }
         }
-        Toast.makeText(this, "Заказ добавлен в историю", Toast.LENGTH_SHORT).show()
+        // Проверка: если есть хотя бы один выбранный товар, покажем сообщение
+        if (selectedItems.isNotEmpty()) {
+            Toast.makeText(this, "Заказ добавлен в историю", Toast.LENGTH_SHORT).show()
+        } else {
+            Toast.makeText(this, "Выберите хотя бы один товар для добавления в историю", Toast.LENGTH_SHORT).show()
+        }
     }
+
 
 }

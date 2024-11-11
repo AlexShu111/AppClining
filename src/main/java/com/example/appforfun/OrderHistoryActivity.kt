@@ -36,6 +36,7 @@ class OrderHistoryActivity : AppCompatActivity() {
             val dB = DataOrder(this)
             dB.clearOrders()
             Toast.makeText(this, "История заказов очищена", Toast.LENGTH_SHORT).show()
+            finish()
         }
     }
 }
