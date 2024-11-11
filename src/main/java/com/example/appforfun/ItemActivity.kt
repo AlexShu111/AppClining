@@ -42,13 +42,11 @@ class ItemActivity : AppCompatActivity() {
             startActivity(intent)
         }
         butPay.setOnClickListener {
-            val titleOr = intent.getStringExtra("ItemTitle") ?: ""
-            val priceOr = intent.getStringExtra("ItemPrice") ?: ""
-
-            // Сохранение заказа в базу данных
-            val db = DataOrder(this)
-            db.addOrder(titleOr, priceOr)
-            Toast.makeText(this, "Заказ добавлен в историю", Toast.LENGTH_SHORT).show()
+            val intent = Intent(this, CartActivity::class.java)
+            intent.putExtra("USER_LOGIN", profLogin)
+            intent.putExtra("ItemTitle", title.text)
+            intent.putExtra("ItemPrice", price.text)
+            startActivity(intent)
         }
 
     }

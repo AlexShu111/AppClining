@@ -59,4 +59,9 @@ class DataOrder(context: Context) : SQLiteOpenHelper(context, DATABASE_NAME, nul
         db.close()
         return ordersList
     }
+    fun clearOrders() {
+        val db = this.writableDatabase
+        db.execSQL("DELETE FROM $TABLE_ORDERS")
+        db.close()
+    }
 }

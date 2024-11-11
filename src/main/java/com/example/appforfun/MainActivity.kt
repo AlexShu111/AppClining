@@ -25,14 +25,14 @@ class MainActivity : AppCompatActivity() {
                     val password = userPassword.text.toString().trim()
 
                     if (login == "" || email == "" || password == "")
-                        Toast.makeText(this, "You don't feel out all field", Toast.LENGTH_LONG)
+                        Toast.makeText(this, "Вы не заполнили все поля!", Toast.LENGTH_LONG)
                             .show()
                     else {
                         val user = User(login, email, password)
 
                         val db = DataHelper(this, null)
                         db.addUser(user)
-                        Toast.makeText(this, "Hello new member $login", Toast.LENGTH_LONG).show()
+                        Toast.makeText(this, "Дабро пожаловать новый пользователь! $login", Toast.LENGTH_LONG).show()
 
                         userLogin.text.clear()
                         userEmail.text.clear()
