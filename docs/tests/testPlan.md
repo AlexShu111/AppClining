@@ -106,7 +106,7 @@
 
 ## Представление результатов
 
-Результаты представлены в документе ["Результаты тестирования"](https://github.com/sunshine1uvv/SellCar/blob/master/docs/tests/testResult.md).
+Результаты представлены в документе ["Результаты тестирования"](https://github.com/AlexShu111/AppClining/blob/main/docs/tests/testResult.md).
 
 <a name="conclusion"/>
 
